@@ -1,139 +1,77 @@
-# Sensify
+# NeuroSafe
 
-Inclusive mobile navigation for neurodivergent and sensory-sensitive users.
+`NeuroSafe` — хакатонный проект инклюзивного мобильного приложения для безопасной навигации нейроотличных детей и других пользователей с повышенной сенсорной чувствительностью. Приложение не просто ведёт по карте, а помогает выбирать более спокойный путь с учётом шума, толпы, предсказуемости маршрута и близости тихих зон.
 
-Sensify NeuroSafe is an `Expo` / `React Native` prototype focused on safer city movement for children, teens, and adults who may be affected by noise, crowds, bright spaces, stress, or sudden route changes. Instead of treating navigation as a shortest-path problem only, the product is designed around calmer movement, guided support, and fast access to help.
+## Идея продукта
 
-## Overview
+- строить маршрут не только по времени, но и по сенсорной нагрузке
+- предупреждать о шумных и перегруженных участках
+- давать быстрый доступ к SOS и доверенным контактам
+- поддерживать невербальную коммуникацию в момент перегрузки
+- помогать родителю отслеживать поездки и факторы риска
 
-The app combines:
+## Что реализовано в MVP
 
-- sensory-aware route guidance;
-- real-time trip tracking;
-- AI-assisted support during movement;
-- quick nonverbal communication;
-- emergency escalation through SOS;
-- a guardian-facing monitoring view;
-- accessibility-first interaction patterns.
+- Expo Go мобильное приложение на `React Native`
+- вкладка `Маршрут` с режимами `Быстрый`, `Самый тихий`, `Спокойный`, `Короткий`, `Доступный`
+- вкладка `Шум` с шумовыми предупреждениями и тихими точками
+- вкладка `Профиль` с сенсорными метриками, тихими зонами и родительской аналитикой
+- вкладка `SOS` с экстренным сценарием и невербальными фразами
+- режим для слабовидящих пользователей
+- базовая авторизация и структура для дальнейшего расширения
 
-The current version is a polished MVP prototype built for demo and product validation.
+## Структура
 
-## Features
+```text
+assalau/
+├─ myApp/          # Expo Go приложение
+├─ admin-portal/   # веб-панель, оставлена как отдельный модуль
+└─ main.py
+```
 
-### User onboarding
+## Запуск мобильного приложения
 
-- guided setup for trip goals and mobility habits;
-- manual language selection with `RU`, `KZ`, and `EN`;
-- theme selection;
-- sensory sensitivity setup;
-- permissions-oriented flow for location, notifications, smartwatch connection, and SOS readiness.
-
-### Safe route screen
-
-- calm, safe, adaptive, school, shortest, and night route modes;
-- route load visualization by segment;
-- nearby quiet places and safe zones;
-- route warnings for noisy or overloaded areas;
-- one-tap trip start for live trip mode.
-
-### Live trip experience
-
-- active trip progress state;
-- soft warnings when the route becomes more difficult;
-- nearby recovery points such as quiet spaces;
-- UI prepared for future real-time GPS integration.
-
-### AI assistant
-
-- simple-language support;
-- short, low-pressure route guidance;
-- quick actions for breathing, pausing, and support requests;
-- chat-style UI ready for future text and voice integrations.
-
-### SOS and nonverbal support
-
-- one-tap SOS access;
-- emergency escalation modal with location-sharing intent;
-- large public-facing support message for nearby adults;
-- nonverbal quick phrases for overload situations.
-
-### Guardian panel
-
-- child profile summary;
-- live movement status card;
-- trusted contact overview;
-- weekly analytics snapshot for trips, alerts, and route comfort.
-
-### Accessibility
-
-- high-contrast mode;
-- simple language mode;
-- one-hand mode;
-- soft screen mode for overload scenarios;
-- haptic feedback toggle.
-
-## Tech Stack
-
-- `Expo`
-- `React Native`
-- `TypeScript`
-
-## Project Structure
-
-- [App.tsx](/c:/Users/alikhan/Sensify/App.tsx) — main application UI and demo state
-- [app.json](/c:/Users/alikhan/Sensify/app.json) — Expo configuration
-- [package.json](/c:/Users/alikhan/Sensify/package.json) — scripts and dependencies
-
-## Getting Started
-
-### Prerequisites
-
-- `Node.js 20+` recommended
-- `npm`
-- `Expo Go` on an iOS or Android device
-
-### Install
-
-```bash
+```powershell
+cd C:\Users\alikhan\Music\assalau\myApp
 npm install
+npx expo start
 ```
 
-### Run
+Если PowerShell не даёт запускать `npm` или `npx`, используй:
 
-```bash
-npm run start
+```powershell
+npm.cmd install
+npx.cmd expo start
 ```
 
-Then scan the QR code with `Expo Go`.
+После запуска:
 
-## Current MVP Scope
+- открой `Expo Go` на телефоне
+- отсканируй QR-код
+- дождись загрузки bundle
 
-This repository currently ships a front-end prototype with local demo data. It does not yet include:
+Полезные команды:
 
-- production authentication;
-- backend services;
-- persistent storage;
-- real map providers or live geolocation;
-- smartwatch device APIs;
-- push notification infrastructure;
-- live AI or voice processing.
+```powershell
+npm run lint
+npm run android
+npm run ios
+npm run web
+```
 
-## Product Direction
+## Хакатонная подача
 
-Planned next steps:
+Продукт решает проблему обычных навигаторов, которые не учитывают сенсорные триггеры среды. Для нейроотличного пользователя важны не только минуты до точки назначения, но и громкие улицы, рынки, яркие пространства, перегруженные переходы и возможность быстро уйти в тихое место.
 
-- integrate location and map services;
-- add persistent child and guardian profiles;
-- support trip history and event logs;
-- connect voice and AI assistant services;
-- add biometric protection for sensitive screens;
-- introduce real smartwatch actions and stress signals;
-- build a web dashboard for guardians and administrators.
+`NeuroSafe` показывает, как навигация может стать инклюзивной:
 
-## Status
+- карта помогает избегать перегрузки
+- маршрут объясняется простыми шагами
+- ребёнок может быстро позвать на помощь
+- родитель получает более понятную картину риска
 
-Prototype / hackathon MVP.
+## Ограничения текущей версии
 
-## License
-
-Add a license before publishing publicly.
+- данные о шуме и рисках сейчас mock
+- биометрия, звонок в `112`, часы и backend-аналитика показаны как MVP-сценарии
+- админ-панель в этом спринте не переписывалась под новый брендинг полностью
