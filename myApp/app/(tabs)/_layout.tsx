@@ -1,0 +1,88 @@
+import { Ionicons } from '@expo/vector-icons';
+import { Tabs } from 'expo-router';
+import React from 'react';
+
+import { HapticTab } from '@/components/haptic-tab';
+import { useAccessibility } from '@/contexts/accessibility-context';
+
+export default function TabLayout() {
+  const { blindModeEnabled } = useAccessibility();
+
+  return (
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarButton: HapticTab,
+        tabBarActiveTintColor: '#0EA5E9',
+        tabBarInactiveTintColor: '#8E8E93',
+        tabBarStyle: {
+          height: 74,
+          paddingBottom: 10,
+          paddingTop: 8,
+          backgroundColor: '#FFFFFF',
+          borderTopColor: 'rgba(20, 32, 50, 0.08)',
+        },
+        tabBarLabelStyle: {
+          fontSize: 11,
+          fontWeight: '600',
+        },
+      }}>
+      <Tabs.Screen
+        name="index"
+        options={{
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="routes"
+        options={{
+          title: 'Маршрут',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="trail-sign-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="risks"
+        options={{
+          title: 'Шум',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="volume-high-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="city"
+        options={{
+          title: 'Профиль',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="pulse-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="vision"
+        options={{
+          href: blindModeEnabled ? undefined : null,
+          title: 'Зрение',
+          tabBarIcon: ({ color, size }) => <Ionicons name="eye-outline" size={size} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'SOS',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="shield-outline" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="explore"
+        options={{
+          href: null,
+        }}
+      />
+    </Tabs>
+  );
+}
