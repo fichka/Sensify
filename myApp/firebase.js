@@ -12,12 +12,7 @@ import { doc, getDoc, getFirestore, serverTimestamp, setDoc } from 'firebase/fir
 import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC0SYxZNJbVYuK94qznywhVM1FytLMvil0",
-  authDomain: 'ivivi-dc4c7.firebaseapp.com',
-  projectId: 'ivivi-dc4c7',
-  storageBucket: 'ivivi-dc4c7.firebasestorage.app',
-  messagingSenderId: '166156709765',
-  appId: '1:166156709765:web:15d8497797aa223261eec',
+assalau
 };
 
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
